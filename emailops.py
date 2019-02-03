@@ -7,7 +7,7 @@ from email.mime.text import MIMEText
 from email.utils import COMMASPACE, formatdate
 
 
-def send_mail(send_from, send_to, subject, text, files=None, server="smtp.gmail.com"):
+def send_mail(send_from, send_from_pass, send_to, subject, text, files=None, server="smtp.gmail.com"):
 	assert isinstance(send_to, list)
 
 	msg = MIMEMultipart()
@@ -30,7 +30,7 @@ def send_mail(send_from, send_to, subject, text, files=None, server="smtp.gmail.
 
 	try:
 		ssl_server = smtplib.SMTP_SSL(server, 465)
-		ssl_server.login(send_from, "WebCrap^3LaCl")
+		ssl_server.login(send_from, send_from_pass)
 		ssl_server.sendmail(send_from, send_to, msg.as_string())
 		ssl_server.close()
 	except SMTPException as e:
