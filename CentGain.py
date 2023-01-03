@@ -2,7 +2,7 @@ from CoinexAPI import CoinexAPI
 import time
 
 market = "CETUSDT"
-capi = CoinexAPI("35723FF964944EE9BF47E36F276A7245","84B87FE2247A4930AB9D5DA011C8F9DB559C9C225E404674")
+capi = CoinexAPI("<>","<>")
 market_ticker = capi.market_ticker(market)
 ticker_data = market_ticker['ticker']
 
